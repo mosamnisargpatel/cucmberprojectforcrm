@@ -28,12 +28,14 @@ public class Hooks {
 	@Before
 	public void openbrowser() throws Exception
 	{
-		FileInputStream fis = new FileInputStream("C:\\Users\\mosam\\eclipse-workspace\\CucumberDemo\\config.properties");
+		FileInputStream fis = new FileInputStream("C:\\Users\\mosam\\git\\repository\\CucumberDemo\\config.properties");
+
 		p = new Properties();
 		p.load(fis);
+		
 		if(p.getProperty("Browser").equals("chrome"))
 		{
-			//  WebDriverManager.chromedriver().setup(); 
+			WebDriverManager.chromedriver().setup(); 
 		d1 = new ChromeDriver();
 		d1.manage().window().maximize();
 		wait = new WebDriverWait(d1, java.time.Duration.ofSeconds(20));
